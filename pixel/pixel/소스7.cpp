@@ -20,15 +20,31 @@ void drawPixel(const int& i, const int& j, const int& red, const float& green, c
 // scratched from https://courses.engr.illinois.edu/ece390/archive/archive-f2000/mp/mp4/anti.html
 // see 'Rasterization' part.
 
-//void drawLine(const int& i0, const int& j0, const int& i1, const int& j1, const float& red, const float& green, const float& blue)
-//{
-//	for (int i = i0; i <= i1; i++)
-//	{
-//		const int j = (j1 - j0)*(i - i0) / (i1 - i0) + j0;
-//
-//		drawPixel(i, j, red, green, blue);
-//	}
-//}
+
+void drawcircle(const int& i0, const int& j0, const int& r, const float& red, const float& green, const float& blue)
+{
+	
+	int x = r, y = 0, err = 0;
+	while (x >= y)
+	{
+		drawPixel(i0 + x, j0 + y, 1.0f, 0.0f, 0.0f);
+		drawPixel(i0 + y, j0 + x, 1.0f, 0.0f, 0.0f);
+		drawPixel(i0 - y, j0 + x, 1.0f, 0.0f, 0.0f);
+		drawPixel(i0 - x, j0 + y, 1.0f, 0.0f, 0.0f);
+		drawPixel(i0 - x, j0 - y, 1.0f, 0.0f, 0.0f);
+		drawPixel(i0 - y, j0 - x, 1.0f, 0.0f, 0.0f);
+		drawPixel(i0 + y, j0 - x, 1.0f, 0.0f, 0.0f);
+		drawPixel(i0 + x, j0 - y, 1.0f, 0.0f, 0.0f);
+
+		y += 1;
+		err += 1 + 2 * y;
+		if ((err - x) * 2 + 1 > 0)
+		{
+			x -= 1;
+			err += 1 - 2 * x;
+		}
+	}
+}
 
 void drawOnPixelBuffer()
 {
@@ -47,10 +63,9 @@ void drawOnPixelBuffer()
 	// drawing a line
 	//TODO: anti-aliasing
 
-	/*const int i0 = 100, i1 = 200;
-	const int j0 = 100, j1 = 200;
-	drawLine(i0, j0, i1, j0, 1.0f, 0.0f, 0.0f);
-	*/
+	const int i0 = 100, j0 = 100, r = 50;
+	drawcircle(i0, j0, r, 1.0f, 0.0f, 0.0f);
+
 
 	//TODO: try moving object
 }

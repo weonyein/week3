@@ -18,6 +18,15 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="소스.cpp" />
+    <ClCompile Include="소스2.cpp" />
+    <ClCompile Include="소스3.cpp" />
+    <ClCompile Include="소스4.cpp" />
+    <ClCompile Include="소스5.cpp" />
+    <ClCompile Include="소스6.cpp" />
+    <ClCompile Include="소스7.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{72219E9D-E959-448E-BE13-2030E86509E7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -144,9 +153,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="소스.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
